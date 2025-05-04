@@ -1,0 +1,89 @@
+Assignment 14 
+Create an elastic IP for an instance. 
+✅ Objective 
+Learn how to create and assign an Elastic IP to an EC2 instance so that its public IP remains static, 
+even if the instance is stopped and started again. 
+�
+� Why Elastic IP? 
+When you stop and restart an EC2 instance, the public IPv4 address changes. This is a problem if: 
+ You're hosting a website or application. 
+ You're using a custom domain that points to that IP. 
+To prevent this, Elastic IP acts as a static IP that you can attach to any EC2 instance, ensuring 
+consistent access. 
+�
+�
+ ️ Steps to Perform the Lab 
+A. Create an EC2 Instance 
+1. Login to AWS Console → Go to EC2 Dashboard. 
+2. Click “Instances (Running)” > Click “Launch Instance”. 
+3. Name your instance 
+Under Name and tags, enter: 
+➤ Snehaec2WebServer (or any preferred name) 
+4. Choose OS Image (AMI) 
+➤ Under Application and OS Images, select: 
+o Quick Start 
+o Ubuntu (Free Tier Eligible) 
+5. Create or Select a Key Pair 
+o Choose an existing key pair or click Create new key pair 
+o Give a name like snehaa1234 
+o Select:  
+ Key pair type: RSA 
+ File format: .pem 
+o Click Create key pair and download the .pem file 
+6. Choose Instance Type 
+➤ Keep default: t2.micro (Free Tier Eligible) 
+7. Configure Security Group (Firewall Rules) 
+Select Create security group and check all three options: 
+o ✅ Allow SSH (for connecting to instance) 
+o ✅ Allow HTTPS (secure web access) 
+o ✅ Allow HTTP (web access) 
+8. Launch Instance 
+Assignment 14 
+o Review summary 
+o Click Launch Instance 
+o On confirmation page, click “View all instances” 
+B. Observe Public IP Change on Restart 
+1. Copy current Public IPv4 address of your instance 
+➤ Found in instance details pane 
+2. Stop the instance 
+➤ Actions > Instance state > Stop instance 
+3. Start the instance again 
+➤ Actions > Instance state > Start instance 
+4. Check the Public IPv4 address again 
+➤ You'll notice it has changed 
+✅ Confirms why Elastic IP is needed. 
+C. Allocate an Elastic IP 
+1. On left menu, go to: 
+➤ Network & Security > Elastic IPs 
+2. Click Allocate Elastic IP address 
+3. Keep default settings and click Allocate 
+D. Associate Elastic IP with Instance 
+1. Select the newly allocated IP 
+➤ Click “Associate Elastic IP address” 
+2. In the form that opens: 
+o Resource Type: Select Instance 
+o Instance: Select your current running EC2 instance 
+o Private IP: Keep default 
+o ✅ Check “Allow this Elastic IP address to be reassociated” 
+3. Click Associate 
+E. Verify Elastic IP Behavior 
+1. Copy current Public IPv4 address (this is now your Elastic IP) 
+2. Stop and start the instance again as before 
+Assignment 14 
+3. Check the Public IPv4 address again 
+➤ You'll see it hasn’t changed this time ✅ 
+�
+� Success! Your instance now has a static IP. 
+F. Clean Up (Optional) 
+If you want to remove the Elastic IP: 
+1. Disassociate Elastic IP 
+➤ Go to Elastic IPs > Select IP > Actions > Disassociate Elastic IP 
+2. Release Elastic IP 
+➤ After disassociation, select again > Actions > Release Elastic IP 
+�
+� Summary 
+Without Elastic IP 
+With Elastic IP 
+Public IP changes after restart Static IP remains the same 
+Manual DNS update needed No DNS changes required 
+Less reliable for hosted apps Ideal for hosting apps/websites 

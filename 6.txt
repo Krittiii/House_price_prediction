@@ -1,0 +1,57 @@
+Assignment-6 
+Here is a comprehensive and lucid instructional guide based on the provided AWS
+Assignment6.pdf, detailing the steps to upload a static website to Amazon S3. 
+Uploading a Static Website in Amazon S3 
+Overview 
+This guide covers: 
+1. Creating a public S3 bucket 
+2. Enabling static website hosting 
+3. Uploading files and modifying permissions 
+4. Accessing the website via a public URL 
+Remark: Hosting a website on S3 requires making the files publicly accessible. Ensure no 
+sensitive data is included. 
+Step 1: Sign in to AWS and Open Amazon S3 Console 
+1. Go to AWS (https://aws.amazon.com) and sign in. 
+2. In the AWS Management Console, navigate to Amazon S3. 
+Step 2: Create a Public S3 Bucket 
+1. In the left panel, click Buckets. 
+2. Click Create bucket. 
+3. The Create bucket page opens. 
+4. Enter a Bucket Name (e.g., snehapublicbucket). 
+5. Choose the AWS Region where the bucket will reside. 
+6. Enable ACLs under Object Ownership. 
+7. Modify Public Access Settings:  
+o Uncheck Block Public Access settings for this bucket. 
+o Tick the Acknowledgment box. 
+8. Click Create Bucket. 
+Remark: The bucket itself is public, but individual files must also be made public. 
+Step 3: Enable Static Website Hosting 
+1. Open the newly created bucket. 
+2. Go to the Properties tab. 
+3. Scroll down to Static Website Hosting and click Edit. 
+4. Enable Static Website Hosting. 
+5. Set the Index Document as index.html. 
+6. Click Save changes. 
+Remark: The index.html file will serve as the home page for the website. 
+Step 4: Upload Website Files 
+1. Click Upload. 
+2. Click Add folders and select the folder containing the website files (index.html, 
+next.html, about.html). 
+3. Click Upload to complete the process. 
+Step 5: Make Files Public Using ACL 
+1. Select all uploaded files (index.html, next.html, about.html). 
+2. Click Actions → Make public using ACL. 
+3. In the Make Public page, click Make Public. 
+Remark: This step ensures that website files can be accessed by anyone. 
+Step 6: Access the Website 
+1. Click on index.html. 
+2. Navigate to the Properties tab. 
+3. Under Object Overview, copy the Object URL. 
+4. Paste the URL in a web browser. 
+5. The static website should be visible. 
+Final Notes 
+ If the website does not load, verify ACL permissions and ensure public access is 
+enabled. 
+ The bucket name must be unique globally in AWS. 
+ To use a custom domain, configure Amazon Route 53 and set up a CNAME record. 
+ For additional security, consider setting up AWS CloudFront. 

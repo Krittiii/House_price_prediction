@@ -1,0 +1,70 @@
+Assignment 13 
+Create a WorkMail for Your Organization 
+Objective: 
+Set up a business email using Amazon WorkMail for your organization. 
+�
+� What is Amazon WorkMail? 
+Amazon WorkMail is a secure, managed business email and calendar service that works 
+with existing desktop and mobile email clients like Microsoft Outlook, iOS Mail, and 
+Android Mail. It lets users access email, contacts, and calendars from anywhere. 
+�
+�
+ ️ Step-by-Step Instructions 
+Step 1: Log in to AWS Console 
+ Open AWS Management Console. 
+ Sign in using your credentials. 
+Step 2: Open Amazon WorkMail Service 
+ In the AWS Console search bar (at the top), type “Amazon WorkMail”. 
+ Click on Amazon WorkMail from the search results. 
+Step 3: Create a New Organization 
+ Click on “Create organization”. 
+You will now see the Create an Amazon WorkMail Organization page. 
+Step 4: Configure Organization Settings 
+ Under Email Domain, select “Free Test Domain” (this allows you to use a test 
+domain provided by AWS). 
+ Under Alias, enter a short and relevant name for your organization.  
+o For example: l-and-p 
+Assignment 13 
+�
+� Alias is used as part of the email domain, like @l-and-p.awsapps.com. 
+Step 5: Create the Organization 
+ Click the “Create Organization” button. 
+ Wait a few minutes while AWS sets up your organization. 
+ Once it’s done, you’ll see the new organization listed. 
+Step 6: Access the Organization 
+ Click on the alias name of the organization you just created (e.g., l-and-p). 
+Step 7: Create a New User 
+ On the left menu, click on “Users”. 
+ Click on “Create User”. 
+Step 8: Fill in User Details 
+ In the Create a User page:  
+o Username: e.g. s-n-e-h-a 
+o Display name: e.g. Sneha 
+o Optionally, enter First Name and Last Name. 
+Step 9: Set Up Email 
+ AWS automatically generates the email in this format: 
+ <username>@<organization-name>.awsapps.com 
+Example: s-n-e-h-a@l-and-p.awsapps.com 
+ Set a password and confirm it. 
+ Click on Create User. 
+✅ The user is now created and will appear in the list. 
+Step 10: Log In to Amazon WorkMail Web Application 
+Assignment 13 
+ Go back to the organization details page. 
+ Look for the Amazon WorkMail web application link and click it.  
+o This will open the WorkMail login page. 
+Step 11: Sign In to Webmail 
+ Use the Username (e.g. s-n-e-h-a) and the Password you set earlier. 
+ Click Sign In. 
+�
+� You’ll be logged into your Amazon WorkMail inbox. 
+Step 12: Send and Receive Emails 
+ To send an email: 
+o Click New item > New Email 
+o In the To: field, enter a recipient’s email address. 
+o Write a subject and message, then click Send. 
+ You can also check your Inbox to view any incoming messages. 
+❌ Step 13: Delete the WorkMail Setup (Optional Cleanup) 
+If you want to delete everything: 
+1. Go to Users, and delete all users first. 
+2. Go back to the organization and choose Delete organization. 

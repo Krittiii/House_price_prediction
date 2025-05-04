@@ -1,0 +1,81 @@
+Assignment-8 
+Deploying a Project from Local Machine to GitHub and 
+Vice Versa 
+Overview 
+This guide explains: 
+1. Creating a GitHub repository 
+2. Generating a GitHub authentication token 
+3. Uploading files to GitHub using Git Bash 
+4. Cloning a repository to a local machine 
+Remark: Git is an open-source version control system that tracks changes in source code. 
+This process allows developers to manage and share their projects effectively. 
+Step 1: Create a GitHub Repository 
+1. Go to GitHub and sign in or create an account. 
+2. Click on the GitHub logo (top left). 
+3. Under Top Repositories, click New. 
+4. Enter a Repository Name (e.g., MYNEWREPO). 
+5. Choose Public or Private (Here, we select Private). 
+6. Click Create Repository. 
+Remark: A repository is a storage location for project files and their revision history. 
+Step 2: Generate a GitHub Authentication Token 
+GitHub authentication tokens are required for secure access without passwords. 
+1. Click on your Profile Name → Settings. 
+2. Go to Developer Settings (left sidebar). 
+3. Click Tokens (Classic) → Generate New Token (Classic). 
+4. Enter a Token Name (e.g., tok2). 
+5. Set an Expiration Period (e.g., 90 days). 
+6. Check all required permissions. 
+7. Click Generate Token and Copy the Token for later use. 
+Remark: The token replaces your GitHub password for authentication when using Git. 
+Step 3: Upload Files to GitHub Using Git Bash 
+Prerequisites: 
+ Install Git for Windows if not already installed. 
+Process: 
+1. Navigate to Your Project Folder: 
+o On your desktop, locate the folder containing project files. 
+o Right-click inside the folder and select Git Bash Here. 
+2. Initialize Git in the Folder: 
+git init 
+o This creates a new Git repository in the folder. 
+3. Configure Git User Details: 
+git config --global user.email "your_email@example.com" 
+o This links your local Git to your GitHub account. 
+4. Stage Files for Commit: 
+git add . 
+o This adds all files in the folder to Git’s tracking system. 
+5. Commit the Files with a Message: 
+git commit -m "Initial commit" 
+o This saves the changes locally with a message. 
+6. Connect to the Remote Repository: 
+git remote add origin "https://github.com/yourusername/MYNEWREPO.git" 
+o This links your local repository to the GitHub repository. 
+7. Push the Files to GitHub: 
+git push -f origin master 
+o A popup window appears asking for credentials. 
+o Enter the authentication token instead of the password. 
+Remark: If successful, all files will be visible in the GitHub repository. 
+Step 4: Clone a GitHub Repository to a Local Machine 
+Scenario: 
+We want to download an existing repository (https://github.com/sudip7407/New
+Repo1.git) to our local machine. 
+Process: 
+1. Create a New Folder on your desktop (e.g., folder2). 
+2. Right-click the folder → Git Bash Here. 
+3. Clone the GitHub Repository: 
+git clone "https://github.com/sudip7407/New-Repo1.git" 
+o This downloads the repository to the local machine. 
+4. Verify Files Are Downloaded: 
+ls 
+o This lists all files in the cloned repository. 
+5. Navigate Inside the Cloned Repository: 
+cd New-Repo1 
+6. Check Repository Files: 
+ls 
+o This displays the files copied from GitHub. 
+Remark: You can now modify files and push updates back to GitHub using the steps from 
+Step 3 (excluding token creation). 
+Final Notes 
+ Authentication tokens expire after a set period; regenerate if needed. 
+ Using git push -f overwrites changes in the remote repository. Be cautious. 
+ Ensure Git is installed before attempting commands. 
+ Use SSH authentication instead of tokens for enhanced security. 

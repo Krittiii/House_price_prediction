@@ -1,0 +1,100 @@
+Assignment 09 
+�
+� Deploy a Project from GitHub to EC2 
+�
+� Objective 
+Deploy a Node.js project from a GitHub repository to an Ubuntu EC2 instance using Bitvise 
+SSH. 
+✅ Step 1: Launch an EC2 Instance 
+1. Open EC2 Console 
+o Go to https://console.aws.amazon.com/ec2/ 
+o Click Instances (Running) > Launch Instance 
+2. Configure Instance 
+o Name: e.g., SnehaEC2WebServer 
+o Application and OS Image:  
+ Choose Ubuntu under Quick Start (Free Tier eligible) 
+o Instance Type: t2.micro (default, Free Tier) 
+o Key Pair (Login):  
+ Click Create new key pair 
+ Name it e.g., snehaa1234 
+ Type: RSA, File format: .pem 
+ Save the .pem file securely (you’ll need it to connect) 
+o Network Settings:  
+ Under Firewall (Security Groups), check:  
+ ✅ Allow SSH 
+ ✅ Allow HTTP 
+ ✅ Allow HTTPS 
+3. Launch the Instance 
+o Click Launch Instance 
+o Click View all instances to go back to dashboard. 
+�
+� Step 2: Connect to EC2 via Bitvise SSH Client 
+1. Get Public IPv4 
+o Click your instance’s Instance ID 
+o Copy the Public IPv4 Address 
+2. Open Bitvise SSH Client 
+o Download: https://www.bitvise.com/ssh-client-download 
+o Open Bitvise and do the following:  
+ Server - Host: Paste EC2’s Public IPv4 
+ Username: ubuntu 
+ Click Client Key Manager  
+ Click Import and load your .pem file 
+ It will appear as Global 1 
+Assignment 09 
+ Set:  
+ Initial Method: publickey 
+ Client Key: Global 1 
+o Click Log in → Accept & Save 
+�
+�
+ ️ Step 3: Set Up Server Environment in Terminal 
+Once inside Bitvise terminal: 
+1. Update Packages 
+sudo apt-get update && sudo apt-get upgrade 
+Type y when prompted. 
+2. Install NGINX 
+sudo apt-get install nginx 
+Type y when prompted. 
+3. Install Node.js 
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
+sudo apt install nodejs 
+4. Clone GitHub Repo 
+git clone https://github.com/itsmesneha/MYNEWREPO.git 
+o When prompted:  
+ Username: GitHub email 
+ Password: GitHub token (not your password) 
+5. Go to Project Directory 
+cd MYNEWREPO 
+6. Install Project Dependencies 
+npm install 
+�
+� Step 4: Allow App Port (e.g., 4000) in Security Group 
+1. Go to EC2 Dashboard 
+2. Click your Instance ID 
+3. Go to Security > Security Groups 
+Assignment 09 
+4. Click Edit Inbound Rules  
+o Click Add Rule  
+ Type: Custom TCP 
+ Port Range: 4000 
+ Source: Anywhere (0.0.0.0/0) 
+5. Click Save Rules 
+�
+� Step 5: Run the Node.js App 
+In Bitvise terminal: 
+node index.js 
+ If no error appears, the server has started. 
+ Open your browser and enter: 
+http://<your-ec2-public-ip>:4000 
+E.g., http://3.91.123.45:4000 
+You should now see the deployed application running from the GitHub repo. 
+�
+� Summary of Commands 
+sudo apt-get update && sudo apt-get upgrade 
+sudo apt-get install nginx 
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
+sudo apt install nodejs 
+git clone https://github.com/itsmesneha/MYNEWREPO.git 
+cd MYNEWREPO 
+npm install 
+node index.js 
